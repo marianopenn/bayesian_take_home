@@ -9,7 +9,7 @@ def create_tables(accessor):
 
     sql_create_album_table = """CREATE TABLE IF NOT EXISTS album (
                                     id integer PRIMARY KEY,
-                                    name text NOT NULL,
+                                    title text NOT NULL,
                                     release_date text NOT NULL,
                                     price real NOT NULL,
                                     artist_id integer NOT NULL,
@@ -19,7 +19,8 @@ def create_tables(accessor):
     sql_create_track_table = """CREATE TABLE IF NOT EXISTS track (
                                     id integer PRIMARY KEY,
                                     title text NOT NULL,
-                                    duration text NOT NULL,
+                                    minutes integer NOT NULL,
+                                    seconds integer NOT NULL,
                                     album_id integer NOT NULL,
                                     FOREIGN KEY (album_id) REFERENCES album (id)
                                 );"""
